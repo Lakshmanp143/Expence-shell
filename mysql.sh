@@ -4,13 +4,15 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-TIMESTAP=$(date +%Y-%m-%d-%H-%M-%S)
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOGS_FOLDER="/var/log/expenseshell-logs"
 LOGS_FILE=$(echo $0 | cut -d "." -f1 )
-LOGS_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.lOG"
+LOGS_FILE_NAME="$LOGS_FOLDER/$LOGS_FILE-$TIMESTAMP.log"
 
 VALIDATE(){
-    if [ $1 -ne 0 ]; then
+    if [ $1 -ne 0 ]
+    then
+
         echo -e "$2..... $R FAILURE $N"
         exit 1
     else
@@ -19,7 +21,8 @@ VALIDATE(){
 }
 
 CHECK_ROOT(){
-    if [ $? -ne 0 ]; then
+    if [ $? -ne 0 ]
+    then
         echo " You need be root user to execute this script"
         exit 1
     fi
