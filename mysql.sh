@@ -43,5 +43,5 @@ VALIDATE $? "Starting mysqld service"
 #if [ $? -ne o ]; then
 #   echo "mysql root password not setup" &>>$LOGS_FILE_NAME
 
-mysql_secure_installation --set-root-pass Expense@App1  &>>$LOGS_FILE_NAME
+mysql_secure_installation --set-root-pass ExpenseApp@1  &>>$LOGS_FILE_NAME
 VALIDATE $? "Setting root password"
