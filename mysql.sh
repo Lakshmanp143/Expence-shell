@@ -30,15 +30,17 @@ CHECK_ROOT
 dnf install mysql-server -y  &>>$LOGS_FILE_NAME
 VALIDATE @? "istalling mysql-server"
 
-dnf systemctl enable mysqld  &>>$LOGS_FILE_NAME
+systemctl enable mysqld  &>>$LOGS_FILE_NAME
 VALIDATE $? "Enabling mysqld serveice"
 
-dnf systemctl start mysqld  &>>$LOGS_FILE_NAME
+systemctl start mysqld  &>>$LOGS_FILE_NAME
 VALIDATE $? "Starting mysqld service"
 
-#mysql -h mysql.lakshman.site -u root -pExpense@App1 
+#mysql -h mysql.lakshman.site -u root -pExpense@App1 -e 'show databases;' &>>$LOGS_FILE_NAME
 #if [ $? -ne o ]; then
-#   echo -e ""
+#   echo "mysql root password not setup" &>>$LOGS_FILE_NAME
+#else
+
 
 mysql_secure_installation --set -root -pass Expense@App1  &>>$LOGS_FILE_NAME
 VALIDATE $? "Setting root password"
