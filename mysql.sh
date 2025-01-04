@@ -48,12 +48,7 @@ then
     mysql_secure_installation --set-root-pass ExpenseApp@1  &>>$LOGS_FILE_NAME
     
     VALIDATE $? "Setting root password"
-    if [ $? -ne 0 ]
-    then
-        echo -e "mysql pass setup... $R FAILED $N"
-    else
-        echo -e "mysql pass setup... $G success $N"
-    fi
+    
 else
     echo -e "Mysql root password already setup... $Y SKIPPING $N"
 fi
