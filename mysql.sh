@@ -39,7 +39,7 @@ VALIDATE $? "Enabling mysqld serveice"
 systemctl start mysqld  &>>$LOGS_FILE_NAME
 VALIDATE $? "Starting mysqld service"
 
-mysql -h mysql.lakshman.site -u root -pExpense@App1 -e 'show databases;' &>>$LOGS_FILE_NAME
+sudo mysql -h mysql.lakshman.site -u root -pExpense@App1 -e 'show databases;' &>>$LOGS_FILE_NAME
 if [ $? -ne 0 ]
 then
     echo "mysql root password not setup" &>>$LOGS_FILE_NAME
